@@ -218,7 +218,8 @@ def get_tide_statistics(days: int = 30) -> pd.DataFrame:
         DataFrame containing tide statistics
     """
     with duckdb.connect(DB_PATH) as conn:
-        result = conn.execute("""
+        # DuckDB doesn't support parameterized interval, so we construct the query
+        query = f"""
             SELECT 
                 l.area,
                 AVG(t.current_height) as avg_height,
@@ -227,10 +228,11 @@ def get_tide_statistics(days: int = 30) -> pd.DataFrame:
                 COUNT(*) as record_count
             FROM tidal_records t
             JOIN locations l ON t.location_id = l.id
-            WHERE t.timestamp > CURRENT_TIMESTAMP - INTERVAL ? DAY
+            WHERE t.timestamp > CURRENT_TIMESTAMP - INTERVAL '{days} DAYS'
             GROUP BY l.area
             ORDER BY avg_height DESC
-        """, [days]).fetchdf()
+        """
+        result = conn.execute(query).fetchdf()
         
         return result
 
