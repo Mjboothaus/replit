@@ -17,10 +17,10 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "Basic Streamlit Server"
+args = "Streamlit App"
 
 [[workflows.workflow]]
-name = "Basic Streamlit Server"
+name = "Streamlit App"
 author = "agent"
 
 [workflows.workflow.metadata]
@@ -31,9 +31,17 @@ task = "packager.installForAll"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "streamlit run basic_app.py --server.port 5000"
+args = "streamlit run app.py --server.port 5000"
 waitForPort = 5000
 
 [[ports]]
 localPort = 5000
 externalPort = 80
+
+[[ports]]
+localPort = 5001
+externalPort = 3000
+
+[[ports]]
+localPort = 8000
+externalPort = 8000

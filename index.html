@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSW Tidal Information</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f0f2f6;
+            color: #262730;
+        }
+        .content {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #0068c9;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #0068c9;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #004c94;
+        }
+        .info-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #0068c9;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>NSW Tidal Information</h1>
+        <p>Welcome to the NSW Tidal Information Platform</p>
+        
+        <div class="info-box">
+            <p>The Streamlit app is running on port 5000. You can access it directly using the link below:</p>
+        </div>
+        
+        <a href="http://localhost:5000" class="btn" target="_blank">Open Streamlit App</a>
+        
+        <p>If the link doesn't work, try accessing the port directly.</p>
+        
+        <div class="info-box">
+            <h3>About the Application:</h3>
+            <p>The NSW Tidal Information app provides real-time and predictive tidal data for coastal locations in New South Wales, Australia. You can enter GPS coordinates to get current tide levels, upcoming tides, and visualize tide patterns.</p>
+        </div>
+    </div>
+</body>
+</html>
