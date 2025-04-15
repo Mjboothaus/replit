@@ -4,8 +4,17 @@ address = "0.0.0.0"
 port = 5000
 enableCORS = false
 enableXsrfProtection = false
+maxUploadSize = 50
+maxMessageSize = 50
 
 [browser]
 gatherUsageStats = false
 serverAddress = "0.0.0.0"
 serverPort = 5000
+
+[theme]
+base="light"
+
+[client]
+showErrorDetails = true
+toolbarMode = "minimal"
