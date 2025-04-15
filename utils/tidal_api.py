@@ -3,6 +3,7 @@ import os
 import datetime
 import time
 import json
+import math
 from typing import Dict, List, Any, Optional
 
 # Willyweather API is used for demonstration
