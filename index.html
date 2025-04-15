@@ -53,6 +53,30 @@
             margin: 20px 0;
             text-align: left;
         }
+        .feature-list {
+            text-align: left;
+            display: inline-block;
+            margin: 20px auto;
+        }
+        .feature-list li {
+            margin-bottom: 10px;
+        }
+        .direct-link {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #e3f2fd;
+            border-radius: 8px;
+        }
+        .direct-link p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .direct-link code {
+            background-color: #f1f1f1;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
     </style>
 </head>
 <body>
@@ -61,17 +85,56 @@
         <p>Welcome to the NSW Tidal Information Platform</p>
         
         <div class="info-box">
-            <p>The Streamlit app is running on port 5000. You can access it directly using the link below:</p>
+            <p>The Streamlit app for NSW Tidal Information is running in this Replit environment on port 5000.</p>
+            <p><strong>Important:</strong> Due to the way Replit's preview works, you'll need to use one of these methods to access the app:</p>
         </div>
         
-        <a href="http://localhost:5000" class="btn" target="_blank">Open Streamlit App</a>
+        <a href="https://5000-{window.location.hostname}" class="btn" target="_blank">Open Streamlit App (Method 1)</a>
         
-        <p>If the link doesn't work, try accessing the port directly.</p>
+        <div class="direct-link">
+            <p>If the button above doesn't work, try this URL in a new tab:</p>
+            <p><code>https://5000-{REPLIT_DOMAIN}</code></p>
+            <p>Replace <code>{REPLIT_DOMAIN}</code> with your Replit domain from the URL bar.</p>
+        </div>
+        
+        <h2>Application Features</h2>
+        <ul class="feature-list">
+            <li>Enter GPS coordinates for any NSW coastal location</li>
+            <li>View current tide status and predicted tide times</li>
+            <li>See 48-hour tide forecasts with interactive charts</li>
+            <li>Explore historical tidal data for previously queried locations</li>
+            <li>Analyze tidal statistics across different areas</li>
+        </ul>
         
         <div class="info-box">
-            <h3>About the Application:</h3>
-            <p>The NSW Tidal Information app provides real-time and predictive tidal data for coastal locations in New South Wales, Australia. You can enter GPS coordinates to get current tide levels, upcoming tides, and visualize tide patterns.</p>
+            <h3>About This Application:</h3>
+            <p>The NSW Tidal Information app provides real-time and predictive tidal data for coastal locations in New South Wales, Australia. It uses accurate location validation to ensure coordinates are within NSW coastal regions, and generates reliable tidal data for informed decision-making by boaters, fishers, and coastal visitors.</p>
         </div>
     </div>
+
+    <script>
+        // Replace the placeholder with the actual Replit domain
+        document.addEventListener('DOMContentLoaded', function() {
+            const domain = window.location.hostname;
+            const links = document.querySelectorAll('a[href*="{window.location.hostname}"]');
+            links.forEach(link => {
+                link.href = link.href.replace('{window.location.hostname}', domain);
+            });
+            
+            const codeBlocks = document.querySelectorAll('code');
+            codeBlocks.forEach(block => {
+                if (block.innerText.includes('{REPLIT_DOMAIN}')) {
+                    block.innerText = block.innerText.replace('{REPLIT_DOMAIN}', domain);
+                }
+            });
+            
+            const directLink = document.querySelectorAll('.direct-link p');
+            directLink.forEach(p => {
+                if (p.innerText.includes('{REPLIT_DOMAIN}')) {
+                    p.innerText = p.innerText.replace('{REPLIT_DOMAIN}', domain);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
